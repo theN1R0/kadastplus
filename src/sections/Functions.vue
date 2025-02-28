@@ -5,8 +5,6 @@
       <p class="description">
         Система поддерживает несколько ролей пользователей:
       </p>
-
-      <!-- Карточки ролей -->
       <div class="roles">
         <div class="role-card">
           <font-awesome-icon icon="search" class="role-icon" />
@@ -24,7 +22,6 @@
           <p>Управляют правами пользователей, группами документов и настраивают систему под нужды компании.</p>
         </div>
       </div>
-      <!-- Таблица функций -->
       <div class="table-responsive">
         <table class="functions-table">
           <thead>
@@ -96,7 +93,6 @@ const functions = ref([
     color: #444;
   }
 
-  /* Карточки ролей */
   .roles {
     display: flex;
     justify-content: space-between;
@@ -129,7 +125,6 @@ const functions = ref([
     }
   }
 
-  /* Таблица функций */
   .table-responsive {
     overflow-x: auto;
   }
@@ -139,7 +134,7 @@ const functions = ref([
     font-size: 1rem;
 
     th, td {
-      padding: 16px; /* Увеличен отступ */
+      padding: 16px;
       color: #242424;
       font-weight: bold;
     }
@@ -156,18 +151,15 @@ const functions = ref([
       text-align: center;
     }
 
-    /* Первая колонка (названия функций) */
     td:first-child, th:first-child {
       text-align: left;
-      min-width: 350px; /* Фиксированная ширина для названий функций */
+      min-width: 350px;
     }
 
-    /* Подсветка выделенной строки */
     .highlighted {
-      background-color: #c9dbf8; /* Сделал более насыщенный цвет */
+      background-color: #c9dbf8;
     }
 
-    /* Иконки галочек */
     td svg {
       color: #0f2a55;
       font-size: 1.9rem;

@@ -154,7 +154,6 @@ const prevSlide = () => {
     }
   }
 
-  /* Анимация стандартного переключения (fade) */
   .fade-enter-active,
   .fade-leave-active {
     transition: opacity 0.5s ease-in-out;
@@ -164,7 +163,6 @@ const prevSlide = () => {
     opacity: 0;
   }
 
-  /* Кнопки управления */
   .carousel-controls {
     display: flex;
     justify-content: center;
