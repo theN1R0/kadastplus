@@ -1,0 +1,16 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin button-style {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: $font-size-base;
+  transition: 0.3s ease-in-out;
+  &:hover {
+    opacity: 0.8;
+  }
+}

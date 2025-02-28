@@ -1,0 +1,20 @@
+@import "variables";
+@import "mixins";
+
+body {
+  font-family: $font-main;
+  background-color: $bg-light;
+  color: $primary-color;
+}
+
+header {
+  background-color: $primary-color;
+  color: $secondary-color;
+}
+
+footer {
+  background-color: $primary-color;
+  color: $secondary-color;
+  padding: 20px 0;
+  text-align: center;
+}
