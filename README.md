@@ -4,7 +4,7 @@
 
 ### 1. Клонируйте репозиторий:
 ```sh
-git clone https://github.com/your-repo/neurosearch.git
+git clone https://github.com/theN1R0/neurosearch.git
 cd neurosearch
 ```
 
