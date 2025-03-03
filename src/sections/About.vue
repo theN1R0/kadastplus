@@ -28,7 +28,7 @@
 
 .about {
   background-color: white;
-  padding: 100px 0; // Увеличили отступ сверху и снизу
+  padding: 100px 0;
 
   .container {
     max-width: 1700px;
