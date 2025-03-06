@@ -1,179 +1,191 @@
 <template>
-  <header class="header">
+  <header ref="headerRef" class="header">
     <div class="top-bar">
       <div class="container d-flex justify-content-between align-items-center">
-        <div class="d-flex align-items-center">
+        <!-- Логотип и название -->
+        <div class="d-flex align-items-center" @click="goToHome">
           <img src="@/assets/logo.png" alt="Логотип" class="logo" />
-          <div class="brand">
-            <span class="brand-name">НейроПоиск</span>
-            <span class="brand-subtitle">Справочная система</span>
-          </div>
+          <span class="brand-name">ООО КадастрПлюс</span>
         </div>
-        <div class="d-flex align-items-center">
-          <span class="contact-info">
-            <a href="mailto:sales@nicetu.spb.ru" class="email">
-              <font-awesome-icon icon="envelope" class="me-2" /> sales@nicetu.spb.ru
-            </a>
-            <a href="tel:+78127037584">
-              <font-awesome-icon icon="phone" class="me-2" /> +7 (812) 703-75-84
-            </a>
-          </span>
-          <button class="btn order-call">Заказать звонок</button>
+
+        <!-- Меню навигации -->
+        <nav class="navbar">
+          <ul class="navbar-nav d-flex">
+            <li class="nav-item">
+              <button class="nav-link" @click="navigateTo('Whyus')">Преимущества</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" @click="navigateTo('Pricing')">Услуги</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" @click="navigateTo('About')">О нас</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" @click="navigateTo('Offer')">Консультация</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" @click="navigateTo('Contacts')">Контакты</button>
+            </li>
+          </ul>
+        </nav>
+        <div class="d-flex align-items-center contact-block">
+          <button
+              class="btn order-call"
+              @click="navigateTo('Offer')"
+          >
+            Оставить заявку
+          </button>
         </div>
       </div>
     </div>
-
-    <nav class="navbar navbar-expand-lg">
-      <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#" @click.prevent="scrollTo('Hero')">Главная</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" @click.prevent="scrollTo('About')">О решении</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" @click.prevent="scrollTo('Functions')">Функции</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" @click.prevent="scrollTo('Whyus')">Почему мы?</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" @click.prevent="scrollTo('Offer')">Наше предложение</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" @click.prevent="scrollTo('Pricing')">Стоимость</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" @click.prevent="scrollTo('Contacts')">Контакты</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
   </header>
 </template>
 
 <script setup>
-const scrollTo = (id) => {
-  const section = document.getElementById(id);
-  if (section) {
-    section.scrollIntoView({ behavior: "smooth", block: "start" });
+import { useRouter, useRoute } from 'vue-router';
+import { onMounted, onBeforeUnmount, computed } from 'vue';
+
+const router = useRouter();
+const route = useRoute();
+
+const isServicePage = computed(() => route.path.startsWith('/services/'));
+const isHome = computed(() => route.path === '/');
+
+// Функция перехода с якорем
+const navigateTo = (anchor) => {
+  if (isHome.value) {
+    const section = document.getElementById(anchor);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  } else {
+    router.push(`/#${anchor}`);
   }
 };
+
+// Переход на главную по логотипу
+const goToHome = () => {
+  if (!isHome.value) {
+    router.push('/');
+  }
+};
+
+onMounted(() => {
+  const header = document.querySelector('.header');
+
+  const handleScroll = () => {
+    if (window.scrollY > 0 || isServicePage.value) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  handleScroll();
+
+  onBeforeUnmount(() => {
+    window.removeEventListener('scroll', handleScroll);
+  });
+});
+
 </script>
 
 <style scoped lang="scss">
 @import "@/css/variables.scss";
 
+@keyframes underlineAnimation {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
 .top-bar {
-  background-color: $primary-color;
+  background-color: rgba(255, 255, 255, 0); // прозрачный фон
   padding: 15px 0;
   color: white;
   font-size: 1.1rem;
 
   .container {
     max-width: 1700px;
-    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .logo {
-    height: 50px;
-    margin-right: 15px;
+    height: 40px;
+    margin-right: 10px;
+    cursor: pointer; /* Добавляем курсор для логотипа */
   }
 
-  .brand {
-    display: flex;
-    flex-direction: column;
-
-    .brand-name {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: white;
-    }
-
-    .brand-subtitle {
-      font-size: 0.8rem;
-      color: lighten(white, 20%);
-    }
+  .brand-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer; /* Добавляем курсор для названия */
   }
-
-  .contact-info {
-    display: flex;
-    align-items: center;
-    margin-right: 50px;
-
-    .email {
-      margin-right: 40px;
-    }
-
-    a {
-      color: white;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      font-size: 1.1rem;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-
-  .order-call {
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 30px;
-    padding: 12px 25px;
-    color: white;
-    font-size: 1.2rem;
-    font-weight: 100;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease-in-out;
-
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.3);
-      border-color: white;
-      color: white;
-    }
-  }
-}
-
-.navbar {
-  background-color: white;
-  position: relative;
-  padding: 15px 0;
-  height: 70px;
 
   .navbar-nav {
-    width: 100%;
     display: flex;
-    justify-content: center;
-    position: relative;
-    gap: 30px;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
   .nav-link {
-    font-size: 1.2rem;
-    color: $text-dark;
-    padding: 15px 20px;
+    color: white;
+    font-size: 1.1rem;
     font-weight: bold;
+    text-decoration: none;
+    padding: 10px 15px;
     position: relative;
 
-    &:hover::after {
+    &::after {
       content: "";
       position: absolute;
       left: 0;
-      bottom: -8px;
-      width: 100%;
+      bottom: 0;
+      width: 0;
       height: 6px;
-      background-color: $primary-color;
+      background-color: #ffcc00;
       border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      transition: width 0.4s ease-out;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  .contact-block {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .order-call {
+      background-color: #ffcc00;
+      border-radius: 5px;
+      padding: 10px 20px;
+      color: black;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        background-color: darken(#ffcc00, 10%);
+      }
     }
   }
 }
+
 </style>

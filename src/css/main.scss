@@ -7,9 +7,26 @@ body {
   color: $primary-color;
 }
 
+.container {
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+
 header {
-  background-color: $primary-color;
-  color: $secondary-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 90px;
+  width: 100%;
+  z-index: 1000;
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
+}
+
+header.scrolled {
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 footer {
