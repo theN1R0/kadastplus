@@ -116,4 +116,67 @@
       }
     }
   }
+
+  // ✅ Добавляем мобильную адаптацию
+  @media (max-width: 768px) {
+    padding: 100px 15px;
+
+    .service-title {
+      font-size: 2rem;
+    }
+
+    .service-content {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .service-image {
+      max-width: 100%;
+      text-align: center;
+
+      img {
+        width: 300px;
+        height: auto;
+        margin: 0 auto;
+        object-fit: cover;
+      }
+    }
+
+    .service-text {
+      font-size: 1rem;
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      .order-call {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+      }
+    }
+
+    .service-steps {
+      margin-top: 40px;
+
+      .steps-title {
+        font-size: 1.8rem;
+      }
+
+      .step-item {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .step-number {
+          width: 35px;
+          height: 35px;
+          font-size: 1rem;
+        }
+
+        .step-text {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
 }
