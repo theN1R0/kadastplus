@@ -1,36 +1,36 @@
 <template>
   <section class="service">
-    <div class="container">
+    <!-- Hero-блок -->
+    <div class="hero-image">
+      <img src="@/assets/services/vynos.png" alt="Вынос границ земельного участка" />
       <h1 class="service-title">Вынос границ земельного участка</h1>
-      <div class="service-content">
-        <div class="service-image">
-          <img
-              src="@/assets/services/vynos.jpg"
-              alt="Вынос границ земельного участка"
-          />
-        </div>
-        <div class="service-text">
-          <p>
-            Компания <strong>КадастрПлюс</strong> предлагает услугу по выносу поворотных точек границ земельного участка для кадастрового учета и определения точных координат.
-          </p>
-          <h2>Что включает услуга?</h2>
-          <p>
-            <strong>Вынос в натуру границ участка</strong> — завершающий этап кадастровых работ после съемки, межевания и постановки на учет. Позволяет определить границы участка на местности.
-          </p>
-          <p>
-            <strong>Определение местоположения</strong> — точная локализация границ земельного участка с учетом координат в кадастровом паспорте.
-          </p>
-          <p class="service-price"><strong>Стоимость от 800₽ за точку</strong></p>
-          <button
-              class="btn order-call animate__animated animate__pulse animate__infinite animate__slow"
-              onclick="window.location.href='tel:+79123727282'"
-          >
-            Заказать звонок
-          </button>
-        </div>
+    </div>
+
+    <div class="container">
+      <div class="service-text">
+        <p>
+          Компания <strong>КадастрПлюс</strong> предлагает услугу по выносу поворотных точек границ земельного участка для кадастрового учета и определения точных координат.
+        </p>
+
+        <h2>Что включает услуга?</h2>
+        <p>
+          <strong>Вынос в натуру границ участка</strong> — завершающий этап кадастровых работ после съемки, межевания и постановки на учет. Позволяет определить границы участка на местности.
+        </p>
+        <p>
+          <strong>Определение местоположения</strong> — точная локализация границ земельного участка с учетом координат в кадастровом паспорте.
+        </p>
+
+        <p class="service-price"><strong>Стоимость от 800₽ за точку</strong></p>
+
+        <button
+            class="btn order-call animate__animated animate__pulse animate__infinite animate__slow"
+            onclick="window.location.href='tel:+79123727282'"
+        >
+          Заказать звонок
+        </button>
       </div>
 
-      <!-- Секция этапов -->
+      <!-- Этапы -->
       <div class="service-steps">
         <h2 class="steps-title">Этапы осуществления проекта</h2>
         <div class="steps-list">

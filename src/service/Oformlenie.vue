@@ -1,38 +1,38 @@
 <template>
   <section class="service">
-    <div class="container">
+    <!-- Hero-блок -->
+    <div class="hero-image">
+      <img src="@/assets/services/oformlenie.png" alt="Оформление дома в собственность" />
       <h1 class="service-title">Оформление дома в собственность</h1>
-      <div class="service-content">
-        <div class="service-image">
-          <img
-              src="@/assets/services/oformlenie.jpg"
-              alt="Оформление дома в собственность"
-          />
-        </div>
-        <div class="service-text">
-          <p>
-            Компания <strong>КадастрПлюс</strong> предлагает услугу по оформлению дома в собственность в Кировской области.
-          </p>
-          <h2>Мы оформляем в собственность:</h2>
-          <p>
-            Жилого дома<br />
-            Дачного дома<br />
-            Садового дома<br />
-            Бани<br />
-            Хозяйственных построек<br />
-            Других сооружений
-          </p>
-          <p class="service-price"><strong>Цена от 9 000₽</strong></p>
-          <button
-              class="btn order-call animate__animated animate__pulse animate__infinite animate__slow"
-              onclick="window.location.href='tel:+79123727282'"
-          >
-            Заказать звонок
-          </button>
-        </div>
+    </div>
+
+    <div class="container">
+      <div class="service-text">
+        <p>
+          Компания <strong>КадастрПлюс</strong> предлагает услугу по оформлению дома в собственность в Кировской области.
+        </p>
+
+        <h2>Мы оформляем в собственность:</h2>
+        <p>
+          Жилого дома<br />
+          Дачного дома<br />
+          Садового дома<br />
+          Бани<br />
+          Хозяйственных построек<br />
+          Других сооружений
+        </p>
+
+        <p class="service-price"><strong>Цена от 9 000₽</strong></p>
+
+        <button
+            class="btn order-call animate__animated animate__pulse animate__infinite animate__slow"
+            onclick="window.location.href='tel:+79123727282'"
+        >
+          Заказать звонок
+        </button>
       </div>
 
-      <!-- Секция этапов -->
+      <!-- Этапы -->
       <div class="service-steps">
         <h2 class="steps-title">Этапы осуществления проекта</h2>
         <div class="steps-list">

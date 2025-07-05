@@ -1,38 +1,38 @@
 <template>
   <section class="service">
-    <div class="container">
+    <!-- Hero-блок -->
+    <div class="hero-image">
+      <img src="@/assets/services/act.png" alt="Акт обследования" />
       <h1 class="service-title">Составление акта обследования</h1>
-      <div class="service-content">
-        <div class="service-image">
-          <img
-              src="@/assets/services/act.jpg"
-              alt="Акт обследования"
-          />
-        </div>
-        <div class="service-text">
-          <p>
-            Компания <strong>КадастрПлюс</strong> предлагает составление акта
-            обследования для снятия объекта недвижимости с кадастрового учета.
-          </p>
-          <h2>Что такое акт обследования?</h2>
-          <p>
-            Акт обследования требуется, когда объект недвижимости (здания,
-            сооружения, объекты незавершенного строительства, помещения) уже не
-            существует, а в государственном кадастре недвижимости по-прежнему
-            содержатся сведения о нем. Такие сведения необходимо исключить из
-            кадастра.
-          </p>
-          <p class="service-price"><strong>Цена от 5 000₽</strong></p>
-          <button
-              class="btn order-call animate__animated animate__pulse animate__infinite animate__slow"
-              onclick="window.location.href='tel:+79123727282'"
-          >
-            Заказать звонок
-          </button>
-        </div>
+    </div>
+
+    <div class="container">
+      <div class="service-text">
+        <p>
+          Компания <strong>КадастрПлюс</strong> предлагает составление акта
+          обследования для снятия объекта недвижимости с кадастрового учета.
+        </p>
+
+        <h2>Что такое акт обследования?</h2>
+        <p>
+          Акт обследования требуется, когда объект недвижимости (здания,
+          сооружения, объекты незавершенного строительства, помещения) уже не
+          существует, а в государственном кадастре недвижимости по-прежнему
+          содержатся сведения о нем. Такие сведения необходимо исключить из
+          кадастра.
+        </p>
+
+        <p class="service-price"><strong>Цена от 5 000₽</strong></p>
+
+        <button
+            class="btn order-call animate__animated animate__pulse animate__infinite animate__slow"
+            onclick="window.location.href='tel:+79123727282'"
+        >
+          Заказать звонок
+        </button>
       </div>
 
-      <!-- Секция этапов -->
+      <!-- Этапы -->
       <div class="service-steps">
         <h2 class="steps-title">Этапы осуществления проекта</h2>
         <div class="steps-list">
@@ -65,6 +65,7 @@
     </div>
   </section>
 </template>
+
 
 <script setup>
 const scrollToOffer = () => {

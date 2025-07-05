@@ -1,36 +1,36 @@
 <template>
   <section class="service">
-    <div class="container">
+    <!-- Hero-блок -->
+    <div class="hero-image">
+      <img src="@/assets/services/razdel.png" alt="Раздел земельного участка" />
       <h1 class="service-title">Раздел земельного участка</h1>
-      <div class="service-content">
-        <div class="service-image">
-          <img
-              src="@/assets/services/razdel.jpg"
-              alt="Раздел земельного участка"
-          />
-        </div>
-        <div class="service-text">
-          <p>
-            Компания <strong>КадастрПлюс</strong> предлагает услугу по разделу земельного участка для учета изменений границ участка земли.
-          </p>
-          <h2>Что включает услуга?</h2>
-          <p>
-            Раздел земельного участка — это кадастровые работы, в результате которых из одного объекта недвижимости, зарегистрированного в ЕГРН, образуются несколько новых участков с индивидуальными кадастровыми номерами.
-          </p>
-          <p>
-            <strong>Раздел земельного участка:</strong> исходный участок прекращает свое существование, а вместо него образуются два или несколько новых земельных участков.
-          </p>
-          <p class="service-price"><strong>Цена от 10 000₽</strong></p>
-          <button
-              class="btn order-call animate__animated animate__pulse animate__infinite animate__slow"
-              onclick="window.location.href='tel:+79123727282'"
-          >
-            Заказать звонок
-          </button>
-        </div>
+    </div>
+
+    <div class="container">
+      <div class="service-text">
+        <p>
+          Компания <strong>КадастрПлюс</strong> предлагает услугу по разделу земельного участка для учета изменений границ участка земли.
+        </p>
+
+        <h2>Что включает услуга?</h2>
+        <p>
+          Раздел земельного участка — это кадастровые работы, в результате которых из одного объекта недвижимости, зарегистрированного в ЕГРН, образуются несколько новых участков с индивидуальными кадастровыми номерами.
+        </p>
+        <p>
+          <strong>Раздел земельного участка:</strong> исходный участок прекращает свое существование, а вместо него образуются два или несколько новых земельных участков.
+        </p>
+
+        <p class="service-price"><strong>Цена от 10 000₽</strong></p>
+
+        <button
+            class="btn order-call animate__animated animate__pulse animate__infinite animate__slow"
+            onclick="window.location.href='tel:+79123727282'"
+        >
+          Заказать звонок
+        </button>
       </div>
 
-      <!-- Секция этапов -->
+      <!-- Этапы проекта -->
       <div class="service-steps">
         <h2 class="steps-title">Этапы осуществления проекта</h2>
         <div class="steps-list">
@@ -69,6 +69,7 @@
     </div>
   </section>
 </template>
+
 
 <script setup>
 const scrollToOffer = () => {

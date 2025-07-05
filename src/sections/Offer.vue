@@ -21,19 +21,23 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, getCurrentInstance } from 'vue';
 
 const phoneNumber = ref("");
 
+// Получаем глобальный notyf из main.js
+const { appContext } = getCurrentInstance();
+const notyf = appContext.config.globalProperties.$notyf;
+
 const formatPhone = () => {
-  let value = phoneNumber.value.replace(/\D/g, ""); // Убираем все, кроме цифр
+  let value = phoneNumber.value.replace(/\D/g, "");
 
   if (value.startsWith("7")) {
-    value = value.substring(1); // Убираем ведущую "7", так как она уже в шаблоне
+    value = value.substring(1);
   }
 
   if (value.length > 10) {
-    value = value.substring(0, 10); // Ограничиваем 10 цифрами (без +7)
+    value = value.substring(0, 10);
   }
 
   let formatted = "+7 ";
@@ -55,7 +59,13 @@ const formatPhone = () => {
 };
 
 const submitForm = () => {
-  alert(`Отправлен номер (доделать): ${phoneNumber.value}`);
+  if (phoneNumber.value.length < 18) {
+    notyf.error("Введите корректный номер телефона");
+    return;
+  }
+
+  notyf.success("Заявка отправлена!");
+  phoneNumber.value = "";
 };
 </script>
 

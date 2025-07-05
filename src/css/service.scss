@@ -1,49 +1,70 @@
 @import "@/css/variables.scss";
 
 .service {
-  padding: 100px 20px;
+  padding: 0;
 
-  .service-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 40px;
-    text-align: center;
-    color: black;
-  }
-
-  .service-content {
-    display: flex;
-    align-items: flex-start;
-    gap: 40px;
-    flex-wrap: wrap;
-
-    @media (min-width: 992px) {
-      flex-wrap: nowrap;
-    }
-  }
-
-  .service-image {
-    flex: 1;
-    max-width: 500px;
+  .hero-image {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
 
     img {
       width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      border: 3px solid #ffcc00;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: blur(3px); // 👈 небольшой блюр
+      transform: scale(1.05); // немного увеличим, чтобы блюр не обрезался по краям
+    }
+
+    // Затеняющий слой
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3); // 👈 полупрозрачное затемнение
+      z-index: 1;
+    }
+
+    .service-title {
+      position: absolute;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 20px 40px;
+      border-radius: 8px;
+      border: 2px solid #000000;
+      font-size: 2.8rem;
+      font-weight: bold;
+      color: #000;
+      text-align: center;
+      max-width: 90%;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      z-index: 2; // заголовок выше затемнения
     }
   }
 
+
+  .container {
+    padding: 60px 20px;
+  }
+
   .service-text {
-    flex: 1;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     line-height: 1.6;
     color: black;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center; // 👈 центрируем текст
 
     h2 {
       margin-top: 20px;
       font-size: 1.5rem;
-      font-weight: bold;
     }
 
     .service-price {
@@ -58,11 +79,13 @@
       background-color: #ffcc00;
       border: none;
       padding: 15px 30px;
-      font-size: 1.1rem;
+      font-size: 1.4rem;
       font-weight: bold;
       border-radius: 5px;
       cursor: pointer;
       transition: all 0.3s ease;
+      display: inline-block;
+      text-align: center;
 
       &:hover {
         background-color: darken(#ffcc00, 10%);
@@ -70,75 +93,65 @@
     }
   }
 
+
   .service-steps {
     margin-top: 60px;
     color: black;
 
     .steps-title {
+      text-align: center;
       font-size: 2rem;
       font-weight: bold;
       margin-bottom: 30px;
-      text-align: center;
     }
 
     .steps-list {
       display: flex;
       flex-direction: column;
       gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .step-item {
       display: flex;
-      align-items: flex-start;
+      align-items: center; // 👈 изменено с flex-start на center
       gap: 20px;
       padding: 20px;
       background: #f9f9f9;
       border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
       border: 2px solid #ffcc00;
 
       .step-number {
-        width: 40px;
-        height: 40px;
+        min-width: 44px;
+        min-height: 44px;
+        aspect-ratio: 1 / 1;
         background-color: #ffcc00;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-weight: bold;
         color: white;
+        font-weight: bold;
         font-size: 1.2rem;
+        flex-shrink: 0;
       }
 
       .step-text {
-        font-size: 1.1rem;
+        font-size: 1.4rem;
         line-height: 1.6;
       }
     }
   }
 
-  // ✅ Добавляем мобильную адаптацию
   @media (max-width: 768px) {
-    padding: 100px 15px;
+    .hero-image {
+      height: 300px;
 
-    .service-title {
-      font-size: 2rem;
-    }
-
-    .service-content {
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .service-image {
-      max-width: 100%;
-      text-align: center;
-
-      img {
-        width: 100%;
-        height: auto;
-        margin: 0 auto;
-        object-fit: cover;
+      .service-title {
+        font-size: 1.6rem;
+        padding: 12px 20px;
+        bottom: 20px;
       }
     }
 
@@ -151,21 +164,16 @@
 
       .order-call {
         width: 100%;
-        padding: 12px;
-        font-size: 1rem;
       }
     }
 
     .service-steps {
-      margin-top: 40px;
-
       .steps-title {
         font-size: 1.8rem;
       }
 
       .step-item {
         flex-direction: column;
-        align-items: flex-start;
 
         .step-number {
           width: 35px;

@@ -30,17 +30,17 @@ import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { RouterLink } from 'vue-router';
 
 const services = [
-  { title: "Технический план", price: "от 9 000 руб", image: new URL('@/assets/services/plan.jpg', import.meta.url).href, link: "/services/plan" },
-  { title: "Акт обследования", price: "от 5 000 руб", image: new URL('@/assets/services/act.jpg', import.meta.url).href, link: "/services/act" },
-  { title: "Межевание участков", price: "от 8 000 руб", image: new URL('@/assets/services/mej.jpg', import.meta.url).href, link: "/services/mej" },
-  { title: "Раздел земельного участка", price: "от 10 000 руб", image: new URL('@/assets/services/razdel.jpg', import.meta.url).href, link: "/services/razdel" },
-  { title: "Объединение земельных участков", price: "от 12 000 руб", image: new URL('@/assets/services/obiedinenie.jpg', import.meta.url).href, link: "/services/obiedinenie" },
-  { title: "Вынос границ", price: "от 1 000 руб", image: new URL('@/assets/services/vynos.jpg', import.meta.url).href, link: "/services/vynos" },
-  { title: "Перераспределение участков", price: "от 14 000 руб", image: new URL('@/assets/services/pereraspredelenie.jpg', import.meta.url).href, link: "/services/pereraspredelenie" },
-  { title: "Проектирование", price: "от 8 000 руб", image: new URL('@/assets/services/proekt.jpg', import.meta.url).href, link: "/services/proekt" },
-  { title: "Оформление в собственность", price: "от 9 000 руб", image: new URL('@/assets/services/oformlenie.jpg', import.meta.url).href, link: "/services/oformlenie" },
-  { title: "Топографическая съемка", price: "от 14 000 руб", image: new URL('@/assets/services/plan.jpg', import.meta.url).href, link: "/services/topo" },
-  { title: "Гаражная амнистия", price: "от 8 000 руб", image: new URL('@/assets/services/garaj.jpg', import.meta.url).href, link: "/services/garaj" },
+  { title: "Технический план", price: "от 9 000 руб", image: new URL('@/assets/services/tehplan.png', import.meta.url).href, link: "/services/plan" },
+  { title: "Акт обследования", price: "от 5 000 руб", image: new URL('@/assets/services/act.png', import.meta.url).href, link: "/services/act" },
+  { title: "Межевание участков", price: "от 8 000 руб", image: new URL('@/assets/services/mej.png', import.meta.url).href, link: "/services/mej" },
+  { title: "Раздел земельного участка", price: "от 10 000 руб", image: new URL('@/assets/services/razdel.png', import.meta.url).href, link: "/services/razdel" },
+  { title: "Объединение земельных участков", price: "от 12 000 руб", image: new URL('@/assets/services/obiedinenie.png', import.meta.url).href, link: "/services/obiedinenie" },
+  { title: "Вынос границ", price: "от 1 000 руб", image: new URL('@/assets/services/vynos.png', import.meta.url).href, link: "/services/vynos" },
+  { title: "Перераспределение участков", price: "от 14 000 руб", image: new URL('@/assets/services/pereraspredelenie.png', import.meta.url).href, link: "/services/pereraspredelenie" },
+  { title: "Проектирование", price: "от 8 000 руб", image: new URL('@/assets/services/proekt.png', import.meta.url).href, link: "/services/proekt" },
+  { title: "Оформление в собственность", price: "от 9 000 руб", image: new URL('@/assets/services/oformlenie.png', import.meta.url).href, link: "/services/oformlenie" },
+  { title: "Топографическая съемка", price: "от 14 000 руб", image: new URL('@/assets/services/plan.png', import.meta.url).href, link: "/services/topo" },
+  { title: "Гаражная амнистия", price: "от 8 000 руб", image: new URL('@/assets/services/garaj.png', import.meta.url).href, link: "/services/garaj" },
 ];
 
 const isVisible = ref(false);
